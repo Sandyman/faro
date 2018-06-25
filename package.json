@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "engines": {
+    "node": ">=8"
+  },
   "author": "Sander Huijsen",
   "license": "MIT",
   "devDependencies": {

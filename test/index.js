@@ -1,5 +1,6 @@
 const assert = require('assert');
-const weave = require('../index');
+const weave = require('../index').weave;
+const unweave = require('../index').unweave;
 
 describe('Weave', () => {
     describe('Empty string', () => {
@@ -8,7 +9,7 @@ describe('Weave', () => {
         })
     });
 
-    describe('String of length 1', () => {
+    describe('String of length 1 or 2', () => {
         it('should return the same string when its length is 1 or 2', () => {
             assert.equal(weave('1'), '1');
             assert.equal(weave('12'), '12');
@@ -39,3 +40,41 @@ describe('Weave', () => {
         })
     });
 });
+
+describe('Unweave', () => {
+    describe('Empty string', () => {
+        it('should return empty string when input is empty string', () => {
+            assert.equal(unweave(''), '');
+        })
+    });
+
+    describe('String of length 1 or 2', () => {
+        it('should return the same string when its length is 1 or 2', () => {
+            assert.equal(unweave('1'), '1');
+            assert.equal(unweave('ab'), 'ab');
+        })
+    });
+
+    describe('String of length odd', () => {
+        it('should return unweaved string when its length is odd', () => {
+            assert.equal(unweave('132'), '123');
+            assert.equal(unweave('t hseu supseucatl'), 'the usual suspect');
+        })
+    });
+
+    describe('String of length even', () => {
+        it('should return unweaved string when its length is even', () => {
+            assert.equal(unweave('1324'), '1234');
+            assert.equal(unweave('tmwoenlkveey s'), 'twelve monkeys');
+        })
+    })
+});
+
+describe('Weave then unweave', () => {
+    describe('Round robin', () => {
+        it('should return the original string when we weave then unweave', () => {
+            assert.equal(unweave(weave('Fahrenheit 11')), 'Fahrenheit 11');
+        })
+    });
+});
+
