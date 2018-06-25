@@ -1,7 +1,7 @@
 const assert = require('assert');
 const faro = require('../index');
 
-const { shuffle, weave, unshuffle, unweave } = faro;
+const { shuffle, weave, unshuffle, unweave, shuffleArray, weaveArray, unshuffleArray, unweaveArray } = faro;
 
 describe('Weave', () => {
     describe('Empty string', () => {
@@ -97,3 +97,13 @@ describe('', () => {
         })
     });
 });
+
+describe('Weave-Array', () => {
+  describe('Empty array', () => {
+    it('should return empty array when input is empty array', () => {
+      assert.equal(weaveArray([]) instanceof Array, true);
+      assert.equal(weaveArray([]).length, 0);
+    })
+  });
+});
+

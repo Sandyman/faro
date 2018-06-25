@@ -5,10 +5,11 @@
  * @private
  */
 const _weaveArray = a => {
+    const z = [];
+
     const n2 = Math.ceil(a.length / 2);
     const a1 = a.slice(0, n2);
     const a2 = a.slice(n2);
-    const z = [];
     let c = 0;
     while (c++ < n2) {
         z.push(a1.shift());
@@ -38,22 +39,6 @@ const _unweaveArray = a => {
 };
 
 /**
- * Perform actual weave
- * @param s - Incoming string
- * @returns {string} - Result of the weave
- * @private
- */
-const _weaveString = s => _weaveArray(s.split('')).join('');
-
-/**
- * Perform actual unweave
- * @param s
- * @returns {string}
- * @private
- */
-const _unweaveString = s => _unweaveArray(s.split('')).join('');
-
-/**
  * Perform weave, handling some outlier cases
  * @param s - Incoming string
  * @returns {string}
@@ -61,7 +46,7 @@ const _unweaveString = s => _unweaveArray(s.split('')).join('');
 const weave = s => {
     if (s.length < 3) return s;
 
-    return _weaveString(s);
+    return _weaveArray(s.split('')).join('');
 };
 
 /**
@@ -72,12 +57,41 @@ const weave = s => {
 const unweave = s => {
     if (s.length < 3) return s;
 
-    return _unweaveString(s);
+    return _unweaveArray(s.split('')).join('');
+};
+
+/**
+ * Weave array
+ * @param a
+ * @returns {*}
+ */
+const weaveArray = a => {
+    if (a.length < 3) return a;
+
+    return _weaveArray(a);
+};
+
+/**
+ * Unweave array
+ * @param a
+ * @returns {*}
+ */
+const unweaveArray = a => {
+    if (a.length < 3) return a;
+
+    return _unweaveArray(a);
 };
 
 module.exports = {
+    // String based functions
     shuffle: weave,
-    weave,
     unshuffle: unweave,
+    weave,
     unweave,
+
+    // Array based functions
+    shuffleArray: weaveArray,
+    unshuffleArray: unweaveArray,
+    weaveArray: weaveArray,
+    unweaveArray: unweaveArray,
 };
