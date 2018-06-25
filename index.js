@@ -46,7 +46,6 @@ const _unweave = s => {
  * @returns {string}
  */
 const weave = s => {
-    if (s === '') return '';
     if (s.length < 3) return s;
 
     return _weave(s);
@@ -58,7 +57,6 @@ const weave = s => {
  * @returns {string}
  */
 const unweave = s => {
-    if (s === '') return '';
     if (s.length < 3) return s;
 
     return _unweave(s);
