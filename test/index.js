@@ -72,9 +72,11 @@ describe('Unweave', () => {
 
 describe('Weave then unweave', () => {
     describe('Round robin', () => {
+        const f = 'Fahrenheit 9/11';
+        const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
         it('should return the original string when we weave then unweave', () => {
-            assert.equal(unweave(weave('Fahrenheit 11')), 'Fahrenheit 11');
+            assert.equal(unweave(weave(f)), f);
+            assert.equal(unweave(weave(jwtToken)), jwtToken);
         })
     });
 });
-
