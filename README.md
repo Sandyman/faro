@@ -2,7 +2,7 @@
 
 ### Faro
 
-Perform faro out-shuffle for a string. More information about faro: https://en.wikipedia.org/wiki/Faro_shuffle
+Perform faro out-shuffle for a string or an array. More information about faro: https://en.wikipedia.org/wiki/Faro_shuffle
 
 ### Installation
 
