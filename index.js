@@ -1,23 +1,20 @@
 /**
- * Perform actual weave
- * @param s - Incoming string
- * @returns {string} - Result of the weave
+ * Perform weave on array
+ * @param a - Incoming array
+ * @returns {Array}
  * @private
  */
-const _weave = s => {
-    const n = s.length;
-    const n2 = Math.ceil(n/2);
-    const a1 = s.slice(0, n2).split('');
-    const a2 = s.slice(n2).split('');
-
+const _weaveArray = a => {
+    const n2 = Math.ceil(a.length / 2);
+    const a1 = a.slice(0, n2);
+    const a2 = a.slice(n2);
     const z = [];
     let c = 0;
     while (c++ < n2) {
         z.push(a1.shift());
         z.push(a2.shift());
     }
-
-    return z.join('');
+    return z;
 };
 
 /**
@@ -39,12 +36,20 @@ const _unweaveArray = a => {
 };
 
 /**
+ * Perform actual weave
+ * @param s - Incoming string
+ * @returns {string} - Result of the weave
+ * @private
+ */
+const _weaveString = s => _weaveArray(s.split('')).join('');
+
+/**
  * Perform actual unweave
  * @param s
  * @returns {string}
  * @private
  */
-const _unweave = s => _unweaveArray(s.split('')).join('');
+const _unweaveString = s => _unweaveArray(s.split('')).join('');
 
 /**
  * Perform weave, handling some outlier cases
@@ -54,7 +59,7 @@ const _unweave = s => _unweaveArray(s.split('')).join('');
 const weave = s => {
     if (s.length < 3) return s;
 
-    return _weave(s);
+    return _weaveString(s);
 };
 
 /**
@@ -65,7 +70,7 @@ const weave = s => {
 const unweave = s => {
     if (s.length < 3) return s;
 
-    return _unweave(s);
+    return _unweaveString(s);
 };
 
 module.exports = {
