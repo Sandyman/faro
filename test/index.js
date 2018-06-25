@@ -1,5 +1,7 @@
 const assert = require('assert');
+const shuffle = require('../index').shuffle;
 const weave = require('../index').weave;
+const unshuffle = require('../index').unshuffle;
 const unweave = require('../index').unweave;
 
 describe('Weave', () => {
@@ -77,6 +79,22 @@ describe('Weave then unweave', () => {
         it('should return the original string when we weave then unweave', () => {
             assert.equal(unweave(weave(f)), f);
             assert.equal(unweave(weave(jwtToken)), jwtToken);
+        })
+    });
+});
+
+describe('', () => {
+    describe('Shuffle and weave are the same', () => {
+        it('should be true that shuffle et al are actually functions', () => {
+            assert.equal(typeof shuffle, 'function');
+            assert.equal(typeof weave, 'function');
+            assert.equal(typeof unshuffle, 'function');
+            assert.equal(typeof unweave, 'function');
+        });
+
+        it('should be true that shuffle and weave are the same', () => {
+            assert.equal(shuffle, weave);
+            assert.equal(unshuffle, unweave);
         })
     });
 });

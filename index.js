@@ -61,6 +61,8 @@ const unweave = s => {
 };
 
 module.exports = {
+    shuffle: weave,
     weave,
+    unshuffle: unweave,
     unweave,
 };
