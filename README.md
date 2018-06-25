@@ -22,3 +22,14 @@ console.log(unshuffle('fboaor'));   // Shows foobar
 ```
 
 Unshuffle undoes what shuffle does. The other way around would work too.
+
+You can do the same, but for arrays:
+
+```javascript
+const faro = require('faro');
+
+const { shuffleArray, unshuffleArray } = faro;
+
+console.log(shuffleArray(['f','o','o','b','a','r']));
+console.log(unshuffleArray(['f','b','o','a','o','r']));
+```
