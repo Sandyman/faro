@@ -27,11 +27,9 @@ const _weave = s => {
  * @private
  */
 const _unweave = s => {
-    const a = s.split('');
-
     const z1 = [];
     const z2 = [];
-    a.reduce((ar, v, i) => {
+    s.split('').reduce((ar, v, i) => {
         if ((i % 2) === 0) ar.z1.push(v);
         else ar.z2.push(v);
         return ar;
