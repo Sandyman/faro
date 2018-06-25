@@ -52,7 +52,11 @@ const weave = s => {
     return _weave(s);
 };
 
-
+/**
+ * Perform unweave, handling some outlier cases
+ * @param s - Incoming string
+ * @returns {string}
+ */
 const unweave = s => {
     if (s === '') return '';
     if (s.length < 3) return s;
