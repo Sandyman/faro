@@ -33,3 +33,18 @@ const { shuffleArray, unshuffleArray } = faro;
 console.log(shuffleArray(['f','o','o','b','a','r']));
 console.log(unshuffleArray(['f','b','o','a','o','r']));
 ```
+
+The following functions are available: 
+
+```javascript
+shuffle
+shuffleArray
+unshuffle
+unshuffleArray
+weave
+weaveArray
+unweave
+unweaveArray
+```
+
+`weave` and `shuffle` are aliases, as are `unweave` and `unshuffle`.
