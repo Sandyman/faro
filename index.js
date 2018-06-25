@@ -12,7 +12,7 @@ const _weave = s => {
 
     const z = [];
     let c = 0;
-    while (c++ < n) {
+    while (c++ < n2) {
         z.push(a1.shift());
         z.push(a2.shift());
     }
@@ -21,22 +21,30 @@ const _weave = s => {
 };
 
 /**
+ * Unweave array
+ * @param a - Incoming array
+ * @returns {*[]}
+ * @private
+ */
+const _unweaveArray = a => {
+    const z = a.reduce((ar, v, i) => {
+        if ((i % 2) === 0) ar.z1.push(v);
+        else ar.z2.push(v);
+        return ar;
+    }, {
+        z1: [],
+        z2: []
+    });
+    return z.z1.concat(z.z2);
+};
+
+/**
  * Perform actual unweave
  * @param s
  * @returns {string}
  * @private
  */
-const _unweave = s => {
-    const z1 = [];
-    const z2 = [];
-    s.split('').reduce((ar, v, i) => {
-        if ((i % 2) === 0) ar.z1.push(v);
-        else ar.z2.push(v);
-        return ar;
-    }, {z1, z2});
-
-    return z1.join('') + z2.join('');
-};
+const _unweave = s => _unweaveArray(s.split('')).join('');
 
 /**
  * Perform weave, handling some outlier cases
