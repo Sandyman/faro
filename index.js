@@ -24,15 +24,17 @@ const _weaveArray = a => {
  * @private
  */
 const _unweaveArray = a => {
-    const z = a.reduce((ar, v, i) => {
-        if ((i % 2) === 0) ar.z1.push(v);
-        else ar.z2.push(v);
-        return ar;
+    const z = a.reduce((m, v, i) => {
+        // Alternate between u (even) and v (odd) arrays in the memo object m
+        const q = (i&1) === 0 ? m.u : m.v;
+        q.push(v);
+        return m;
     }, {
-        z1: [],
-        z2: []
+        u: [],
+        v: []
     });
-    return z.z1.concat(z.z2);
+    // Concatenate u and v to get the unweaved array
+    return z.u.concat(z.v);
 };
 
 /**
