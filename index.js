@@ -1,5 +1,7 @@
 const weave = s => {
-    return '';
+    if (s === '') return '';
+
+    return s;
 };
 
 module.exports = weave;
