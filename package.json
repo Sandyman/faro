@@ -1,6 +1,6 @@
 {
   "name": "faro",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Faro out-shuffle a string",
   "main": "index.js",
   "scripts": {
