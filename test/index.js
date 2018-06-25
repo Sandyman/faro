@@ -33,6 +33,7 @@ describe('Weave', () => {
 
     describe('String with oddly placed space', () => {
         it('should return weaved string when space at awkward location', () => {
+            assert.equal(weave('     '), '     ');
             assert.equal(weave('ab '), 'a b');
             assert.equal(weave('a b'), 'ab ');
         })
