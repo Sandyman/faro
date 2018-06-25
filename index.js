@@ -12,10 +12,9 @@ const _weave = s => {
 
     const z = [];
     let c = 0;
-    while (c < n) {
+    while (c++ < n) {
         z.push(a1.shift());
         z.push(a2.shift());
-        c++;
     }
 
     return z.join('');
