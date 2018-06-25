@@ -32,10 +32,10 @@ const _unweave = s => {
 
     const z1 = [];
     const z2 = [];
-    a.reduce((a, v, i) => {
-        if ((i % 2) === 0) a.z1.push(v);
-        else a.z2.push(v);
-        return a;
+    a.reduce((ar, v, i) => {
+        if ((i % 2) === 0) ar.z1.push(v);
+        else ar.z2.push(v);
+        return ar;
     }, {z1, z2});
     return z1.join('') + z2.join('');
 };
