@@ -14,4 +14,11 @@ describe('Weave', () => {
             assert.equal(weave('12'), '12');
         })
     });
+
+    describe('String of length 4 (even)', () => {
+        it('should return weaved string when its length is even', () => {
+            assert.equal(weave('1234'), '1324');
+            assert.equal(weave('cafe'), 'cfae');
+        })
+    });
 });
