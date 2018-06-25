@@ -15,10 +15,19 @@ describe('Weave', () => {
         })
     });
 
-    describe('String of length 4 (even)', () => {
+    describe('String of length even', () => {
         it('should return weaved string when its length is even', () => {
             assert.equal(weave('1234'), '1324');
             assert.equal(weave('cafe'), 'cfae');
+            assert.equal(weave('twelve monkeys'), 'tmwoenlkveey s');
+        })
+    });
+
+    describe('String of length odd', () => {
+        it('should return weaved string when its length is odd', () => {
+            assert.equal(weave('123'), '132');
+            assert.equal(weave('bar'), 'bra');
+            assert.equal(weave('the usual suspect'), 't hseu supseucatl');
         })
     });
 });

@@ -3,6 +3,9 @@ const _weave = s => {
     const a1 = s.slice(0, n2).split('');
     const a2 = s.slice(n2).split('');
 
+    console.log(a1);
+    console.log(a2);
+
     const z = [];
     a1.forEach((v) => {
         z.push(v);
