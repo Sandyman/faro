@@ -105,5 +105,10 @@ describe('Weave-Array', () => {
       assert.equal(weaveArray([]).length, 0);
     })
   });
-});
 
+  describe('Odd length array', () => {
+    it('should have the same length as the original array', () => {
+      assert.equal(weaveArray([1,2,3,4,5]).length, 5);
+    })
+  })
+});

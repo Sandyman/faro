@@ -13,7 +13,11 @@ const _weaveArray = a => {
     let c = 0;
     while (c++ < n2) {
         z.push(a1.shift());
-        z.push(a2.shift());
+
+        // Check length of a2 in case of odd length source array
+        if (a2.length > 0) {
+            z.push(a2.shift());
+        }
     }
     return z;
 };
