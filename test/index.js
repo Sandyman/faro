@@ -1,8 +1,7 @@
 const assert = require('assert');
-const shuffle = require('../index').shuffle;
-const weave = require('../index').weave;
-const unshuffle = require('../index').unshuffle;
-const unweave = require('../index').unweave;
+const faro = require('../index');
+
+const { shuffle, weave, unshuffle, unweave } = faro;
 
 describe('Weave', () => {
     describe('Empty string', () => {
