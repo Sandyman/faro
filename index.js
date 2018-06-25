@@ -10,14 +10,15 @@ const _weaveArray = a => {
     const n2 = Math.ceil(a.length / 2);
     const a1 = a.slice(0, n2);
     const a2 = a.slice(n2);
-    let c = 0;
-    while (c++ < n2) {
+    while (a1.length > 1) {
         z.push(a1.shift());
+        z.push(a2.shift());
+    }
 
-        // Check length of a2 in case of odd length source array
-        if (a2.length > 0) {
-            z.push(a2.shift());
-        }
+    // We moved the test for a2 outside the loop by stopping 1 element early in a1
+    z.push(a1.shift());
+    if (a2.length > 0) {
+      z.push(a2.shift());
     }
     return z;
 };
