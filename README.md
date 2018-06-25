@@ -13,6 +13,8 @@ npm i -S faro
 ### Usage:
 
 ```javascript
+const faro = require('faro');
+
 const { shuffle, unshuffle } = faro;
 
 console.log(shuffle('foobar'));     // Shows fboaor
